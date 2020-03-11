@@ -7,6 +7,8 @@ public class FollowPlatform : MonoBehaviour
     [SerializeField] private GameObject Player = null;
 
     private float MaximumXDistanceToPlayer = 0.0f;
+
+    [SerializeField] private float MovementSpeed = 3.0f; 
     void Start()
     {
         if (Player == null)
@@ -17,11 +19,12 @@ public class FollowPlatform : MonoBehaviour
         MaximumXDistanceToPlayer = Player.transform.position.x - transform.position.x;
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
-        if (Player.transform.position.x - transform.position.x > MaximumXDistanceToPlayer)
-        {
-            transform.position = new Vector3(Player.transform.position.x - MaximumXDistanceToPlayer, transform.position.y, transform.position.z);
-        }
+        transform.position += Vector3.right * MovementSpeed * Time.deltaTime;
+        //if (Player.transform.position.x - transform.position.x > MaximumXDistanceToPlayer)
+        //{
+        //    transform.position = new Vector3(Player.transform.position.x - MaximumXDistanceToPlayer, transform.position.y, transform.position.z);
+        //}
     }
 }

@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private SpriteRenderer SpriteRenderer = null;
     [SerializeField] private GameObject ExplosionParent = null;
     [SerializeField] private ParticleSystem BounceParticle = null;
+    [SerializeField] private CircleCollider2D Collider = null;
 
     private Vector3 ReflectedVector = Vector3.up;
     private Vector3 ReflectionPoint = Vector3.one;
@@ -20,9 +21,15 @@ public class Bullet : MonoBehaviour
             SpriteRenderer = GetComponent<SpriteRenderer>();
             Debug.Log("Please link SpriteRenderer in the Bullet");
         }
+
+        if (Collider == null)
+        {
+            Collider = GetComponent<CircleCollider2D>();
+            Debug.Log("Please link Collider in the Bullet");
+        }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position += (transform.up * FlightSpeed * Time.deltaTime); 
 
@@ -37,8 +44,10 @@ public class Bullet : MonoBehaviour
         enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D p_Collider)
+    private void OnTriggerEnter2D(Collider2D pCollider)
     {
+        if (pCollider.CompareTag("ChunkBoundary"))
+            return;
         Bounce();
     }
 
@@ -57,7 +66,7 @@ public class Bullet : MonoBehaviour
 
     private void GetReflectionVector()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + (Collider.radius * transform.up), transform.up);
         if (hit)
         {
             ReflectionPoint = hit.point;

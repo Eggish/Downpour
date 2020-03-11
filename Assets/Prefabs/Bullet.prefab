@@ -1,41 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!58 &872573633
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6979601470922834948}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.71
---- !u!250 &872573634
-PointEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6979601470922834948}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceMagnitude: -10
-  m_ForceVariation: 0
-  m_DistanceScale: 1
-  m_ForceSource: 0
-  m_ForceTarget: 0
-  m_ForceMode: 0
-  m_Drag: 0
-  m_AngularDrag: 0
 --- !u!1 &6589814575494969703
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,7 +13,7 @@ GameObject:
   - component: {fileID: 6589814575494969702}
   - component: {fileID: 4251885484603138670}
   - component: {fileID: 1921205825}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,9 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlightSpeed: 10
+  ReflectionRayDelay: 0.05
   SpriteRenderer: {fileID: 6589814575494969701}
   ExplosionParent: {fileID: 6979601470922834948}
   BounceParticle: {fileID: 5228661735903403737}
+  Collider: {fileID: 4251885484603138670}
 --- !u!58 &4251885484603138670
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -237,10 +203,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228661735873052378, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8932397165437319860, guid: b90987ed928e28f41bf111646b2b88cc,
         type: 3}
       propertyPath: m_Name
       value: Bullet_bounce_burst
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932397165437319860, guid: b90987ed928e28f41bf111646b2b88cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b90987ed928e28f41bf111646b2b88cc, type: 3}
@@ -265,6 +276,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
         type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
@@ -276,12 +292,72 @@ PrefabInstance:
     - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
         type: 3}
       propertyPath: lengthInSec
-      value: 1.52
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
         type: 3}
       propertyPath: stopAction
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.16288738
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0.86486477
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -0.6573953
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -0.6573953
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0.80639493
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].time
+      value: 0.9925649
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].value
+      value: 0.015384614
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inSlope
+      value: -1.0045233
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outSlope
+      value: -1.0045233
+      objectReference: {fileID: 0}
+    - target: {fileID: 799175860511187237, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inWeight
+      value: 0.13441855
       objectReference: {fileID: 0}
     - target: {fileID: 4946309302277845410, guid: 852f718d95db28b4fb132340df844a09,
         type: 3}
@@ -341,12 +417,17 @@ PrefabInstance:
     - target: {fileID: 6979601470222428760, guid: 852f718d95db28b4fb132340df844a09,
         type: 3}
       propertyPath: m_Name
-      value: Bullet_Blowup
+      value: Bullet_Explosion
       objectReference: {fileID: 0}
     - target: {fileID: 6979601470222428760, guid: 852f718d95db28b4fb132340df844a09,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979601470222428760, guid: 852f718d95db28b4fb132340df844a09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852f718d95db28b4fb132340df844a09, type: 3}

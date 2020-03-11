@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private KeyCode ShootKey = KeyCode.Mouse0;
 
     [SerializeField] private float ShotRecoilForce = 50.0f;
+    [SerializeField] private float ExplosionRecoilForce = 500.0f;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
             if (Bullet.enabled)
             {
                 Bullet.Explode();
+                ExplosionRecoil();;
             }
             else
             {
@@ -46,6 +48,16 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+
+    private void ExplosionRecoil()
+    {
+        Vector3 explosionDirection = (transform.position - Bullet.transform.position).normalized;
+        float distanceToExplosion = Vector3.Distance(transform.position, Bullet.transform.position);
+        float explosionDistanceDivider = distanceToExplosion * distanceToExplosion;
+
+        Rigidbody.AddForce(explosionDirection * ExplosionRecoilForce / explosionDistanceDivider);
+    }
+
 
 
 

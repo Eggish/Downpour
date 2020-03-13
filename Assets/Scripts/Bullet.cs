@@ -6,10 +6,16 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float FlightSpeed = 5.0f;
     [SerializeField] private float ReflectionRayDelay = 0.01f;
+
+    [Header("Links")]
     [SerializeField] private SpriteRenderer SpriteRenderer = null;
     [SerializeField] private GameObject ExplosionParent = null;
     [SerializeField] private ParticleSystem BounceParticle = null;
     [SerializeField] private CircleCollider2D Collider = null;
+    [SerializeField] private AudioSource BounceSource = null;
+    [SerializeField] private AudioSource ExplosionSource = null;
+    [SerializeField] private AudioClip BounceSound = null;
+    [SerializeField] private AudioClip ExplosionSound = null;
 
     private Vector3 ReflectedVector = Vector3.up;
     private Vector3 ReflectionPoint = Vector3.one;
@@ -41,6 +47,7 @@ public class Bullet : MonoBehaviour
     {
         SpriteRenderer.enabled = false;
         ExplosionParent.SetActive(true);
+        ExplosionSource.PlayOneShot(ExplosionSound);
         enabled = false;
     }
 
@@ -61,6 +68,7 @@ public class Bullet : MonoBehaviour
     {
         BounceParticle.Play();
         transform.rotation = Quaternion.LookRotation(transform.forward, ReflectedVector);
+        BounceSource.PlayOneShot(BounceSound);
         Invoke("GetReflectionVector", ReflectionRayDelay);
     }
 

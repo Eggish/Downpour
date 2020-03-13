@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ExplosionRecoilForce = 500.0f;
     [SerializeField] private float ExplosionDistanceDivisionMultiplier = 1.0f;
 
+    [SerializeField] private float ShotCooldown = 0.5f;
+    private float ShotTimer = 0.0f;
+
     void Start()
     {
         Bullet.enabled = false;
@@ -22,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        ShotTimer -= Time.deltaTime;
+
         CheckInput();
     }
 
@@ -34,8 +39,9 @@ public class PlayerController : MonoBehaviour
                 Bullet.Explode();
                 ExplosionRecoil();;
             }
-            else
+            else if(ShotTimer <= 0)
             {
+                
                 Shoot();
             }
         }
@@ -70,6 +76,7 @@ public class PlayerController : MonoBehaviour
             Bullet.enabled = true;
             Bullet.GetShot();
             Rigidbody.AddForce(-Gun.transform.up * ShotRecoilForce);
+            ShotTimer = ShotCooldown;
         }
     }
 }

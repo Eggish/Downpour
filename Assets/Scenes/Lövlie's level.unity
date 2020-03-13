@@ -281,6 +281,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6589814575494969702, guid: cffc3e60bed3f95459ad5f874689feb0,
+        type: 3}
+      propertyPath: FlightSpeed
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6589814575494969703, guid: cffc3e60bed3f95459ad5f874689feb0,
         type: 3}
       propertyPath: m_Name
@@ -543,12 +548,12 @@ PrefabInstance:
     - target: {fileID: 5149047333161142842, guid: 47d41c62bf060be46b782a1e3b2115af,
         type: 3}
       propertyPath: ShotRecoilForce
-      value: 200
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5149047333161142842, guid: 47d41c62bf060be46b782a1e3b2115af,
         type: 3}
       propertyPath: ExplosionRecoilForce
-      value: 300
+      value: 440
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47d41c62bf060be46b782a1e3b2115af, type: 3}

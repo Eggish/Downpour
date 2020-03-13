@@ -365,6 +365,7 @@ MonoBehaviour:
   Chunks:
   - {fileID: 1908676815177732991, guid: 7094f33701726e04c88530ea22db4924, type: 3}
   - {fileID: 2803185687195362135, guid: 96bfb6b76e5a4fe4798828e157e0f12f, type: 3}
+  - {fileID: 1908676815177732991, guid: 6e6536587a158cc4f855fbd0a3f9c1d6, type: 3}
 --- !u!50 &8029713879756019425
 Rigidbody2D:
   serializedVersion: 4

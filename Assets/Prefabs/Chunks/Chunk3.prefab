@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f25b2f86791fd4d97ea17fc0c74240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 5
 --- !u!114 &552798364785768406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,6 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f25b2f86791fd4d97ea17fc0c74240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 5
 --- !u!1 &2803185687195362135
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f25b2f86791fd4d97ea17fc0c74240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 5
 --- !u!114 &9152575446981767637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f25b2f86791fd4d97ea17fc0c74240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 5
 --- !u!114 &6762194479816714524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f25b2f86791fd4d97ea17fc0c74240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementSpeed: 5
 --- !u!1001 &629036542347052266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -403,6 +408,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8462228600931715225, guid: 753404c16daf43e43970a0003384288c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.004142761
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462228600931715225, guid: 753404c16daf43e43970a0003384288c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.69807816
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462228600931715225, guid: 753404c16daf43e43970a0003384288c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.011950731
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462228600931715225, guid: 753404c16daf43e43970a0003384288c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 15.7196865
+      objectReference: {fileID: 0}
     - target: {fileID: 8462228600931715226, guid: 753404c16daf43e43970a0003384288c,
         type: 3}
       propertyPath: m_Name
@@ -504,6 +529,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2803185687195362133}
     m_Modifications:
+    - target: {fileID: 8289608873349433068, guid: a95a4613692dbf243ac17fa63912b53e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.16998386
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289608873349433068, guid: a95a4613692dbf243ac17fa63912b53e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 13.428732
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289608873349433068, guid: a95a4613692dbf243ac17fa63912b53e,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.011774063
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289608873349433068, guid: a95a4613692dbf243ac17fa63912b53e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 31.355305
+      objectReference: {fileID: 0}
     - target: {fileID: 8289608873349433074, guid: a95a4613692dbf243ac17fa63912b53e,
         type: 3}
       propertyPath: m_Name
@@ -664,6 +709,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ceiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081280345565955036, guid: 808608e9ad6524543b22a64ea7016b52,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0032744408
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081280345565955036, guid: 808608e9ad6524543b22a64ea7016b52,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.61934185
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081280345565955036, guid: 808608e9ad6524543b22a64ea7016b52,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.019535065
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081280345565955036, guid: 808608e9ad6524543b22a64ea7016b52,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 15.750832
       objectReference: {fileID: 0}
     - target: {fileID: 6081280345565955039, guid: 808608e9ad6524543b22a64ea7016b52,
         type: 3}

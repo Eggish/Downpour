@@ -555,6 +555,11 @@ PrefabInstance:
       propertyPath: ExplosionRecoilForce
       value: 440
       objectReference: {fileID: 0}
+    - target: {fileID: 5149047333161142842, guid: 47d41c62bf060be46b782a1e3b2115af,
+        type: 3}
+      propertyPath: ShotCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47d41c62bf060be46b782a1e3b2115af, type: 3}
 --- !u!1001 &8029713878638069241

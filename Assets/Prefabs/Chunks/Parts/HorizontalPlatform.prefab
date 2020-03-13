@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7204821354778595682}
   - component: {fileID: 3578480280779595979}
   - component: {fileID: 4098645870363455491}
-  - component: {fileID: 1059823727976788043}
+  - component: {fileID: 4086415882424215017}
   m_Layer: 0
   m_Name: HorizontalPlatform
   m_TagString: Dangerous
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.9498014, y: 12.351881}
   m_EdgeRadius: 0
---- !u!114 &1059823727976788043
+--- !u!114 &4086415882424215017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,8 +118,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6751750654194824552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1425676235b69d74a957c9b6206ecdf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 72f25b2f86791fd4d97ea17fc0c74240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  MovementSpeed: 1

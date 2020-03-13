@@ -109,6 +109,7 @@ MonoBehaviour:
   ExplosionSource: {fileID: 3646792754503506283}
   BounceSound: {fileID: 8300000, guid: 1e7c88e618ad4fe49bfb1b6dc49383d7, type: 3}
   ExplosionSound: {fileID: 8300000, guid: adb43c6068a65a9458019e0acca53342, type: 3}
+  Rigidbody: {fileID: 1921205825}
 --- !u!58 &4251885484603138670
 CircleCollider2D:
   m_ObjectHideFlags: 0

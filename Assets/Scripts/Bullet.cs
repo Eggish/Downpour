@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private AudioSource ExplosionSource = null;
     [SerializeField] private AudioClip BounceSound = null;
     [SerializeField] private AudioClip ExplosionSound = null;
+    [SerializeField] private Rigidbody2D Rigidbody = null;
 
     private Vector3 ReflectedVector = Vector3.up;
     private Vector3 ReflectionPoint = Vector3.one;
@@ -47,6 +48,7 @@ public class Bullet : MonoBehaviour
     {
         SpriteRenderer.enabled = false;
         ExplosionParent.SetActive(true);
+        Rigidbody.velocity = Vector3.zero;
         ExplosionSource.PlayOneShot(ExplosionSound);
         enabled = false;
     }
@@ -55,7 +57,16 @@ public class Bullet : MonoBehaviour
     {
         if (pCollider.CompareTag("ChunkBoundary"))
             return;
-        Bounce();
+        if(pCollider.CompareTag("FollowPlatform"))
+        {
+            FollowPlatform platformScript = pCollider.GetComponent<FollowPlatform>();
+            Rigidbody.velocity += new Vector2(platformScript.GetMovementSpeed(), 0);
+            VerticalPlatformBounce();
+        }
+        else
+        {
+            Bounce();
+        }
     }
 
     public void GetShot()
@@ -67,6 +78,22 @@ public class Bullet : MonoBehaviour
     private void Bounce()
     {
         BounceParticle.Play();
+        transform.rotation = Quaternion.LookRotation(transform.forward, ReflectedVector);
+        BounceSource.PlayOneShot(BounceSound);
+        Invoke("GetReflectionVector", ReflectionRayDelay);
+    }
+    private void VerticalPlatformBounce()
+    {
+        BounceParticle.Play();
+        ReflectedVector = Vector3.Reflect(transform.up, Vector3.right);
+        transform.rotation = Quaternion.LookRotation(transform.forward, ReflectedVector);
+        BounceSource.PlayOneShot(BounceSound);
+        Invoke("GetReflectionVector", ReflectionRayDelay);
+    }
+    private void HorizontalPlatformBounce()
+    {
+        BounceParticle.Play();
+        ReflectedVector = Vector3.Reflect(transform.up, Vector3.up);
         transform.rotation = Quaternion.LookRotation(transform.forward, ReflectedVector);
         BounceSource.PlayOneShot(BounceSound);
         Invoke("GetReflectionVector", ReflectionRayDelay);

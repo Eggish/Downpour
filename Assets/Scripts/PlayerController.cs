@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D p_Collision)
     {
-        if (p_Collision.CompareTag("Dangerous"))
+        if (p_Collision.CompareTag("Dangerous")
+            || p_Collision.CompareTag("FollowPlatform"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D Rigidbody = null;
     [SerializeField] private GameObject Gun = null;
-
     [SerializeField] private Bullet Bullet = null;
-
+    
     [SerializeField] private KeyCode ShootKey = KeyCode.Mouse0;
 
     [SerializeField] private float ShotRecoilForce = 50.0f;
     [SerializeField] private float ExplosionRecoilForce = 500.0f;
+    [SerializeField] private float ExplosionDistanceDivisionMultiplier = 1.0f;
 
     void Start()
     {
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 explosionDirection = (transform.position - Bullet.transform.position).normalized;
         float distanceToExplosion = Vector3.Distance(transform.position, Bullet.transform.position);
-        float explosionDistanceDivider = distanceToExplosion * distanceToExplosion;
+        float explosionDistanceDivider = distanceToExplosion * ExplosionDistanceDivisionMultiplier;
 
         Rigidbody.AddForce(explosionDirection * ExplosionRecoilForce / explosionDistanceDivider);
     }
